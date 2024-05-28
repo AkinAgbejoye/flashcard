@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deck</title>
+</head>
+<body>
+    <h1>List of Decks</h1>
+    <ul>
+        {% for deck in decks %}
+            <li>{{ deck.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'deck_add' %}">Create New Deck</a>
+</body>
+</html>

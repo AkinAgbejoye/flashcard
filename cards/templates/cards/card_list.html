@@ -1,0 +1,35 @@
+<!-- templates/cards/card_list.html -->
+
+{% extends "cards/base.html" %}
+{% load humanize %}
+
+{% block content %}
+    <h2>
+        All Cards
+    </h2>
+    
+    <div class="row">
+        <div class="col-md-3">
+            <a class="btn btn-secondary btn-sm" href="{% url 'card-create' %}" role="button">
+                ✨ Create New Card
+            </a>
+            <a class="btn btn-secondary btn-sm" href="{% url 'deck_add' %}" role="button">
+                ✨ Create Deck
+            </a>
+            {% include "navigation.html" %}
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                {% for card in card_list %}
+                {% ifchanged %}
+                    <!-- <h3>🗃 {{ card.box | ordinal }} Box</h3> -->
+                   
+                {% endifchanged %}
+                
+                {% include "cards/all_cards.html" %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

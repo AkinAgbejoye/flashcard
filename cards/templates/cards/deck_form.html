@@ -1,0 +1,19 @@
+<!-- templates/cards/card_form.html -->
+
+{% extends "cards/base.html" %}
+
+{% block content %}
+    {% if card %}
+        <h2>✏️ Edit Deck</h2>
+    {% else %}
+        <h2>✨ Create New Deck</h2>
+    {% endif %}
+    <form class="form-group" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Save Deck">
+    </form>
+    <a href="{% url 'card-list' %}">
+        Cancel
+    </a>
+{% endblock %}

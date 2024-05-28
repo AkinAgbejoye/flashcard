@@ -1,0 +1,34 @@
+<!-- templates/cards/card.html -->
+
+
+<div class="col-md-4">
+    <article class="col-md-12 center">
+        <a href="{% url 'card-update' card.id %}" role="button">
+            ✏️ Edit Card
+        </a>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <h2>Question</h2>
+                  
+                    <h4>{{ card.question }}</h4>
+                  </div>
+                  <div class="flip-card-back">
+                    <h2>Reveal Answer</h2>
+                    
+                    <h4 class="cardanswer">{{ card.answer }}</h4>
+                  </div>
+                </div>
+              </div>
+        </article>
+        
+</div>
+
+
+
+
+
+
+
+
+

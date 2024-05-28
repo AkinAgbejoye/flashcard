@@ -1,0 +1,39 @@
+<!-- templates/cards/card_form.html -->
+
+{% extends "cards/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+    {% if card %}
+        <h2>✏️ Edit Card</h2>
+    {% else %}
+        <h2>✨ Create New Card</h2>
+    {% endif %}
+    <form method="post">
+        <div class="form-group" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="row">
+            <div class="col-md-6">
+                <input class="btn btn-primary" type="submit" value="Save Card">
+            </div>
+            <div class="col-md-6">
+
+        <a href="{% url 'card-list' %}">
+            Cancel
+        </a>
+            </div>
+        </div>
+     
+            
+    </div>
+    </form>
+   
+</div>
+<div class="col-md-3">
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+<!-- cards/templates/navigation.html -->
+
+{% load cards_tags %}
+
+
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{% url 'card-list' %}">🗂 Manage Cards</a>
+    </li>
+    {% decks_as_links %}
+    
+  </ul>

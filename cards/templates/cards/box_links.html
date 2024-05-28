@@ -1,0 +1,13 @@
+<!-- cards/templates/box_links.html -->
+
+{% load humanize %}
+
+{% for deck in decks %}
+<li class="list-group-item d-flex justify-content-between align-items-center">
+    <a href="{% url 'deck' deck=deck.name %}">
+        🗃 {{ deck  }}
+    </a>
+    <span class="badge badge-primary badge-pill">1</span>
+  </li>
+   
+{% endfor %}

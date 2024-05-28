@@ -1,0 +1,83 @@
+<!-- templates/cards/card.html -->
+<div class="row">
+    <div class="col-md-3">
+        {% include "navigation.html" %}
+    </div>
+    <div class="col-md-6">
+       <article>
+       <article class="col-md-12 center">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h2>
+                                {% if card.question %}
+                                 Question
+                                 {% else %}
+                                 No Question Yet
+                                {% endif %}
+                                </h2>
+
+
+                            <h4>{{ card.question }}</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <h2>Reveal Answer</h2>
+
+                            <h4 class="cardanswer">{{ card.answer }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            {% if check_card %}
+            <article>
+                <div class="row">
+                    <div class="col-md-12">
+                        <textarea class="form-control" id="tryanswer" rows="3"></textarea>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <button type="button" id="revealanswer" class="reaveal">Reveal Answer</button>
+            </article>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-6 known" style="display: none;">
+                    {% include "cards/card_check_form.html" with solved=True %}
+
+                </div>
+                <div class="col-md-6 unknown" style="display: none;">
+                    {% include "cards/card_check_form.html" with solved=False %}
+                </div>
+            </div>
+
+        </article>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#revealanswer').on('click', function () {
+            if ($('#tryanswer').val() != "") {
+                $('.flip-card').toggleClass('flip');
+                var buttonText = $(this).text() === 'Reveal Answer' ? 'Back to question' : 'Reveal Answer';
+                $(this).text(buttonText);
+                if ($('#tryanswer').val() == $('.cardanswer').text()) {
+                    $('.known').css("display", "block")
+                } else {
+                    $('.unknown').css("display", "block");
+                }
+            }
+            else {
+                alert("Provide an answer")
+            }
+
+
+        });
+    });
+</script>
