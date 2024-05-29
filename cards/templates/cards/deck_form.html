@@ -2,18 +2,35 @@
 
 {% extends "cards/base.html" %}
 
+
 {% block content %}
-    {% if card %}
+<div class="row signinform">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 ">
+        {% if card %}
         <h2>✏️ Edit Deck</h2>
     {% else %}
         <h2>✨ Create New Deck</h2>
     {% endif %}
-    <form class="form-group" method="post">
+    <div class="form-group ">
+    <form  method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input class="btn btn-primary" type="submit" value="Save Deck">
-    </form>
-    <a href="{% url 'card-list' %}">
-        Cancel
-    </a>
+        <div class="row">
+            <div class="col-md-6">
+                <input class="btn btn-primary" type="submit" value="Save Deck">
+            </div>
+            <div class="col-md-6">
+                <a  href="{% url 'card-list' %}">
+                    Cancel
+                </a>
+            </div>
+        </div>
+       </form>
+</div>
+    
+    </div>
+    <div class="col-md-3"></div>
+</div>
+   
 {% endblock %}

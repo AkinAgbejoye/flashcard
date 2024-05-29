@@ -1,13 +1,12 @@
 # cards/urls.py
 
 from django.urls import path
+from . import views 
+from .views import get_name
 
-
-from . import views
- 
 urlpatterns = [
 path(
-    "",
+    "manage",
     views.CardListView.as_view(),
     name="card-list"
 ),
@@ -16,13 +15,13 @@ path(
         views.CardCreateView.as_view(),
         name="card-create"
     ),
-     path(
-        "new",
-        views.CardCreateView.as_view(),
-        name="card-create"
-    ),
+    #  path(
+    #     "new",
+    #     views.CardCreateView.as_view(),
+    #     name="card-create"
+    # ),
     path(
-        "edit/<int:pk>",
+        "edit/<int:id>",
         views.CardUpdateView.as_view(),
         name="card-update"
     ),
@@ -39,4 +38,6 @@ path(
     
     path('decks/', views.DeckListView.as_view(), name='deck_list'),
     path('add/', views.DeckCreateView.as_view(), name='deck_add'),
+    path('deck/<int:id>/delete/', views.DeckCreateView.delete_deck, name='delete_deck'),
+    path('', get_name, name='get_name'),
 ]

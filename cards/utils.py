@@ -1,5 +1,8 @@
 # your_app/utils.py
 
+from django.db import connections, DEFAULT_DB_ALIAS
+
+
 from cards.models import Card
 
 
@@ -13,3 +16,5 @@ def get_deck_questions_count(deck):
         return deck_count 
     except IndexError:
         return None
+    
+

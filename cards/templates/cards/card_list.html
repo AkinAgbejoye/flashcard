@@ -20,16 +20,53 @@
         </div>
         <div class="col-md-9">
             <div class="row">
+                {% if not card_list %}
+                <div class="col-md-9">
+                    <article class="col-md-12 center">
+                        <div class="flip-card">
+                                <div class="flip-card-inner">
+                                  <div class="flip-card-front">
+                                    <h2>No Card Yet</h2>
+                                  
+                                    
+                                  </div>
+                                  <div class="flip-card-back">
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                        </article>
+                        
+                </div>
+                {% endif %}
                 {% for card in card_list %}
-                {% ifchanged %}
-                    <!-- <h3>🗃 {{ card.box | ordinal }} Box</h3> -->
-                   
-                {% endifchanged %}
-                
+               
+                {% if card.question %}
                 {% include "cards/all_cards.html" %}
+                {% else %}
+             
+                {% endif %}
             {% endfor %}
             </div>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+        
+                    
+                      <a> Page {{ page_obj.number }}   of {{ page_obj.paginator.num_pages }}.</a>
+                    
+        
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
         </div>
+        
     </div>
     
 {% endblock content %}

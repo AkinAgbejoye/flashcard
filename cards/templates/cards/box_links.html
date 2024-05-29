@@ -7,7 +7,7 @@
     <a href="{% url 'deck' deck=deck.name %}">
         🗃 {{ deck  }}
     </a>
-    <span class="badge badge-primary badge-pill">1</span>
+    <a class="badge badge-primary badge-pill" href="{% url 'delete_deck' deck.id %}">❌</a>
   </li>
    
 {% endfor %}

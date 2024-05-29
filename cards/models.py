@@ -26,7 +26,7 @@ class Deck(models.Model):
 class Card(models.Model):
     question = models.TextField()
     answer = models.TextField()
-    deck = models.CharField(max_length=100, choices=getDecks(),default='General')
+    deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
     box = models.IntegerField(
         choices=zip(BOXES, BOXES),
         default=BOXES[0],
