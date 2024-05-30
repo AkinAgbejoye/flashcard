@@ -13,9 +13,10 @@
 </head>
 <style>
 :root {
-    --primary-color: #5cb85c;;
-    --secondary-color: #495057;
+    --primary-color: #495057;
+    --secondary-color: #5cb85c;
     --accent-color: #FF5722;
+    
 }
 a,a:visited{
    color: white;
@@ -48,6 +49,8 @@ textarea{
     border: 1px solid var(--primary-color);
     background-color: #e9ecef;
     color: black;
+    padding: .5rem .9rem;
+    line-height: normal;
     text-decoration: none;
 }
 article{
@@ -96,16 +99,18 @@ article{
             $('#revealanswer').on('click', function () {
                 if ($('#tryanswer').val() != "") {
                     $('.flip-card').toggleClass('flip');
-                    var buttonText = $(this).text() === 'Reveal Answer' ? 'Back to question' : 'Reveal Answer';
+                    var buttonText = $(this).text() === 'Submit' ? 'Back to question' : 'Submit';
                     $(this).text(buttonText);
                     if ($('#tryanswer').val() == $('.cardanswer').text()) {
                         $('.known').css("display", "block")
                         $('.unknown').css("display", "none");
-                        $('.outcome').text('✅')
+                        $('.outcome').css('display','block')
+                        $('.outcome').text('✅Correct')
                     } else {
                         $('.unknown').css("display", "block");
                         $('.known').css("display", "none")
-                        $('.outcome').text('❌')
+                        $('.outcome').css('display','block')
+                        $('.outcome').text('❌Wrong')
                     }
                 }
                 else {

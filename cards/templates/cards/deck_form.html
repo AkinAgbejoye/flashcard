@@ -10,7 +10,7 @@
         {% if card %}
         <h2>✏️ Edit Deck</h2>
     {% else %}
-        <h2>✨ Create New Deck</h2>
+        <h2 class="mywhite">✨ Create New Deck</h2>
     {% endif %}
     <div class="form-group ">
     <form  method="post">
@@ -21,9 +21,7 @@
                 <input class="btn btn-primary" type="submit" value="Save Deck">
             </div>
             <div class="col-md-6">
-                <a  class="btn " href="{% url 'card-list' %}">
-                    Back
-                </a>
+               
             </div>
         </div>
        </form>

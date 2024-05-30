@@ -9,7 +9,7 @@
     {% if card %}
         <h2>✏️ Edit Card</h2>
     {% else %}
-        <h2>✨ Create New Card</h2>
+        <h2 class="mywhite">✨ Create New Card</h2>
     {% endif %}
     <form method="post">
         <div class="form-group" >
@@ -21,9 +21,6 @@
             </div>
             <div class="col-md-6">
 
-        <a href="{% url 'card-list' %}">
-           Back
-        </a>
             </div>
         </div>
      

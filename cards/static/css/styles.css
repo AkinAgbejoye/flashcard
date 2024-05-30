@@ -1,174 +1,194 @@
 body {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: block;
-    background-image: url('../image/bg1.jpeg'),
-    linear-gradient(to bottom, rgba(0, 255, 234, 0.5), rgba(34, 201, 29, 0.5)); /* Gradient overlay */
-    background-size: cover, cover;
-    background-position: center, center;
-    background-blend-mode: multiply; 
-    background-repeat: no-repeat; /* Prevent the background from repeating */
-   font-family: 'Roboto', sans-serif;
-   
-   background-attachment: fixed;
-  }
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: block;
+  background-image: url('../image/bg1.jpeg'),
+    linear-gradient(to bottom, rgba(0, 255, 234, 0.5), rgba(0, 70, 255, 0.5));
+  /* Gradient overlay */
+  background-size: cover, cover;
+  background-position: center, center;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  /* Prevent the background from repeating */
+  font-family: 'Roboto', sans-serif;
 
-
-
-
-  /* Pagination links */
-  .pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
-    background: #ddd;
-    margin-right: 10px;
-  }
-  
-  /* Style the active/current link */
-  .pagination a.active {
-    background-color: dodgerblue;
-    color: white;
-  }
-
-  #id_box{
-    display: none;
-  }
-
-  label[for="id_box"] {
-   display: none;
-}
-  
-  /* Add a grey background color on mouse-over */
-  .pagination a:hover:not(.active) {background-color: #ddd;}
-  select, input[type='text']{
-    display: block;
-      width: 100%;
-      padding: .375rem .75rem;
-      font-size: 1.5rem;
-      line-height: 1.5;
-      color: #495057;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 1px solid #ced4da;
-      border-radius: .25rem;
-      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  }
-  .signinform{
-    margin-top: 15rem;
-  }
-  
-  .playerwraper{
-    margin-top: 100px;
-    padding: 10px;
-  }
- 
-  .flip-card {
-    background-color: transparent;
-    height: 250px;
-    perspective: 1000px;
-   
-  }
-  
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
-  
-  .flip-card.flip .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .flip-card-front {
-    background-color: #fff;
-    color: linear-gradient(rgb(35, 0, 33,0.5) 50%, rgb(0, 10, 35,0.5) 500%);
-    padding: 8px;
-    font-weight: bold;
-  }
-  
-  .flip-card-back {
-    background-color: #fff;
-    color: linear-gradient(rgb(35, 0, 33,0.5) 50%, rgb(0, 10, 35,0.5) 500%);
-    transform: rotateY(180deg);
-    font-weight: bold;
-    padding: 8px;
-  }
-  .reaveal{
-    border: 1px solid var(--primary-color);
-      background-color: #e9ecef;
-      color: black;
-      padding: .5rem .9rem;
-      line-height: normal;
-      text-decoration: none;
-  }
- 
-  .breadcrumb{
-    border: 0px solid transparent;
-    border-radius: 0px !important;
-    padding: 18px;
-    min-height: 4rem;
-    background: var(--primary-color);
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1);
-  }
-  .breadcrumb a {
-    color:white;
-    
-  }
- 
-  .fixed-top {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 2;
-  }
-  .mywhite{
-    color: white;
-  }
-
-  .badge{
-    display: inline-block;
-    min-width: 10px;
-    padding: 3px 7px;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    background-color: var(--primary-color) !important;
-    border-radius: 10px;
-  }
-  article, fieldset, dialog {
-    border: 1px solid #2644c9;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background: var(--primary-color) !important;
+  background-attachment: fixed;
 }
 
-.formbg{
+/* Pagination links */
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  background: #ddd;
+  margin-right: 10px;
+}
+
+
+/* Style the active/current link */
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+#id_box {
+  display: none;
+}
+
+label[for="id_box"] {
+  display: none;
+}
+
+label[for="id_name"]{
+color: white;
+}
+
+label{
+  color:white
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+select,
+input[type='text'] {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.signinform {
+  margin-top: 15rem;
+}
+
+.playerwraper {
+  margin-top: 100px;
+  padding: 10px;
+}
+
+.flip-card {
+  background-color: transparent;
+  height: 350px;
+  perspective: 1000px;
+
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card.flip .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flip-card-front {
+  background-color: #fff;
+  color: linear-gradient(rgb(35, 0, 33, 0.5) 50%, rgb(0, 10, 35, 0.5) 500%);
+  padding: 8px;
+  font-weight: bold;
+}
+
+.flip-card-back {
+  background-color: #fff;
+  color: linear-gradient(rgb(35, 0, 33, 0.5) 50%, rgb(0, 10, 35, 0.5) 500%);
+  transform: rotateY(180deg);
+  font-weight: bold;
+  padding: 8px;
+}
+
+.reaveal {
+  border: 1px solid var(--primary-color);
+  background-color: #e9ecef;
+  color: black;
+  padding: .5rem .9rem;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.breadcrumb {
+  border: 0px solid transparent;
+  border-radius: 0px !important;
+  padding: 18px;
+  min-height: 4rem;
+  background: var(--primary-color);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1);
+}
+
+.breadcrumb a {
+  color: white;
+
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.mywhite {
+  color: white;
+}
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: var(--primary-color) !important;
+  border-radius: 10px;
+}
+
+article,
+fieldset,
+dialog {
+  border: 1px solid #2644c9;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--primary-color) !important;
+}
+
+.formbg {
   background: var(--primary-color);
 }
 
@@ -180,7 +200,7 @@ body {
   padding: 0;
   border: 1px solid #888;
   width: 40%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
@@ -189,13 +209,27 @@ body {
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
 }
 
 @keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
 }
 
 /* The Close Button */
@@ -215,19 +249,22 @@ body {
 
 .modal-header {
   padding: 2px 16px;
-  background-color: var(--primary-color);;
+  background-color: var(--primary-color);
+  ;
   color: white;
 }
+
 /* #5cb85c; */
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  padding: 2px 16px;
+}
 
 .modal-footer {
   padding: 2px 16px;
-  background-color: var(--primary-color);;
+  background-color: var(--primary-color);
+  ;
   color: white;
 }
-
-
 
 .legend {
   margin-top: 20px;
@@ -247,8 +284,9 @@ body {
   height: 20px;
   display: inline-block;
   margin-right: 10px;
-  background-color: var(--primary-color)
+  background-color: var(--secondary-color)
 }
+
 .color-box2 {
   width: 20px;
   height: 20px;
@@ -259,4 +297,14 @@ body {
 
 .legend-text {
   font-size: 14px;
+}
+
+.outcome {
+  border: 1px solid var(--primary-color);
+  background-color: #e9ecef;
+  color: black;
+  padding: .5rem .9rem;
+  line-height: normal;
+  text-decoration: none;
+  text-align: center;
 }

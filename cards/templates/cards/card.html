@@ -38,24 +38,21 @@
                     </div>
                 </div>
            
-            <div class="row">
+            <div class="row" >
                 <div class="col-md-4 ">
-                <button type="button" id="revealanswer" class="reaveal">Reveal Answer</button>
+                <button type="button" id="revealanswer" class="reaveal">Submit</button>
+               </div>
+            <div class="col-md-4" >
+                   <div type="button" style="display: none;" class="outcome"></div>
             </div>
-            <div class="col-md-4">
-                   <span class="outcome"></span>
-            </div>
-            <div class="col-md-4">
-                <div class="row ">
-                    <div class="col-md-6 known" style="display: none;">
-                        {% include "cards/card_check_form.html" with solved=True %}
-    
-                    </div>
-                    <div class="col-md-6 unknown" style="display: none;">
-                        {% include "cards/card_check_form.html" with solved=False %}
-                    </div>
-                </div>
-            </div>
+             <div class="col-md-4 justify-content-end" >
+                <div style="float: right;">
+               {% include "cards/card_check_form.html" with solved=True %}
+               </div>
+               <div style="float: right;"> 
+                {% include "cards/card_check_form.html" with solved=False %}
+              </div>
+                 </div>
             </div>
             {% endif %}
             
@@ -67,12 +64,13 @@
         <div class="legend">
             <div class="legend-item">
                 <span class="color-box1"></span>
-                <span class="legend-text mywhite">Wrong Attempt- {{ wrong}}</span>
+                <span class="legend-text mywhite">Correct Attempt- {{ correct }}</span>
             </div>
             <div class="legend-item">
                 <span class="color-box2"></span>
-                <span class="legend-text mywhite">Correct Attempt- {{ correct }}</span>
+                <span class="legend-text mywhite">Wrong Attempt- {{ wrong}}</span>
             </div>
+            
     </div>
  
 </div>

@@ -1,12 +1,13 @@
 <!-- cards/templates/card_check_form.html -->
-
+<div class="justify-content-end">
 <form method="post">
     {% csrf_token %}
     <input type="hidden" name="card_id" value="{{ card.id }}">
     <input type="hidden" name="solved" value="{{ solved }}">
     {% if solved %}
-        <input type="submit" value="Next"/>
+        <input type="submit" class="known" style="display: none;" value="Next"/>
     {% else %}
-        <input type="submit" value="Next"/>
+        <input type="submit"   class="unknown" style="display: none;" value="Next"/>
     {% endif %}
 </form>
+</div>
