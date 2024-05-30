@@ -47,6 +47,18 @@ class DeckCreateView(CreateView):
         deck = get_object_or_404(Deck, id=id)
         deck.delete()
         return redirect('card-list')
+    
+    def get_context_data(self, **kwargs):
+    # Get the default context data from the superclass method
+        context = super().get_context_data(**kwargs)
+
+        # Retrieve the name from the session, or use a default value
+        name = self.request.session.get('name', 'Guest')
+
+        # Add the name to the context
+        context['name'] = name
+
+        return context
         
 
 
@@ -64,10 +76,14 @@ class CardListView(ListView):
         context = super().get_context_data(**kwargs)
 
         # Retrieve the name from the session, or use a default value
-        name = self.request.session.get('name', 'Guest')
-
+        name = self.request.session.get('name')
+        wrong = self.request.session.get('wrong')
+        correct = self.request.session.get('correct')
+         
         # Add the name to the context
         context['name'] = name
+        context['wrong'] = wrong
+        context['correct'] = correct
 
         return context
     
@@ -85,6 +101,18 @@ class CardCreateView(CreateView):
         "box":forms.Select(attrs={'class':'form-control d-none'})
     }
     success_url = reverse_lazy("card-create")
+
+    def get_context_data(self, **kwargs):
+    # Get the default context data from the superclass method
+        context = super().get_context_data(**kwargs)
+
+        # Retrieve the name from the session, or use a default value
+        name = self.request.session.get('name')
+
+        # Add the name to the context
+        context['name'] = name
+
+        return context
 
 # class CardCreateView(CreateView):
 #       model = Card
@@ -121,8 +149,11 @@ class BoxView(CardListView):
             id=form.cleaned_data["card_id"]
             solved = form.cleaned_data["solved"] 
             # print("Debug information:", solved)
-            if solved == True:
+            if solved == True:             
+               request.session['correct'] = request.session['correct'] + 1
                LearningHistory(card=id, known=solved,queried_at=timezone.now()).save()
+            else:
+                request.session['wrong'] = request.session['wrong'] + 1
         
 
         return redirect(request.META.get("HTTP_REFERER"))
@@ -159,6 +190,8 @@ def get_name(request):
     if request.method == 'POST':
         name = request.POST.get('name', '')  # Get the value of the 'name' field from the form
         request.session['name'] = name  # Store the name in the session (optional)
+        request.session['wrong'] = 0
+        request.session['correct'] = 0
         return redirect('card-list')  # Redirect to another view to display the name
 
     return render(request, 'cards/player_form.html')

@@ -3,11 +3,33 @@
 {% load humanize %}
 
 {% for deck in decks %}
+      
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+    
+    </div>
+    <div class="modal-body">
+      <h2 class="text-center">Are you sure you want to delete</h2>
+      <p class="text-center" >Once deleted, deck and questions can no longer be retrieved</p>
+    </div>
+    <div class="modal-footer">
+      <a class="btn" href="{% url 'delete_deck' deck.id %}">❌Delete</a>
+    </div>
+  </div>
+
+</div>
 <li class="list-group-item d-flex justify-content-between align-items-center">
     <a href="{% url 'deck' deck=deck.name %}">
         🗃 {{ deck  }}
     </a>
-    <a class="badge badge-primary badge-pill" href="{% url 'delete_deck' deck.id %}">❌</a>
+    <a class="myBtn badge badge-primary badge-pill" >❌</a>
+    
   </li>
    
 {% endfor %}

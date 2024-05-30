@@ -3,15 +3,18 @@
 {% block content %}
 <div class="row" >
     <div class="col-md-4"></div>
-    <div class="col-md-4">
-        <div class="form-group signinform">
-        <h1>Enter your name</h1>
+    <div class="col-md-4 ">
+<div class="form-group  formbg playerwraper ">
+   <h2 class="mywhite">Enter your name</h2>
 <form method="post" action="{% url 'get_name' %}">
     {% csrf_token %}
-    <label for="name">Your name:</label>
-    <input type="text" id="name" name="name" maxlength="100">
-    <button type="submit">Submit</button>
-</form>
+    <div class="form-group">
+    <input type="text" id="name" name="name" maxlength="100" required>
+</div>
+<div class="form-group">
+    <input class="btn btn-primary" type="submit" value="Sign In">
+</div>
+  </form>
 </div>
     </div>
     <div class="col-md-4"></div>

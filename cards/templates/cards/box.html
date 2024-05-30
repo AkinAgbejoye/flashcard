@@ -4,7 +4,7 @@
 {% load humanize %}
 
 {% block content %}
-    <h4>🗃 <span> <mark>{{ object_list | length }}</mark> Card{{ object_list | pluralize }} in <mark>{{check_card.deck}}</mark></span></h4>
+    <h4><mark>&#x2611;</mark> <span class="mywhite"> {{ object_list | length }} Card{{ object_list | pluralize }} in </span><span><mark>{{check_card.deck}}</mark></span></h4>
    
     {% if check_card %}
         {% include "cards/card.html" with card=check_card %}

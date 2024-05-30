@@ -5,79 +5,79 @@
     </div>
     <div class="col-md-6">
        <article>
-       <article class="col-md-12 center">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <h2>
-                                {% if card.question %}
-                                 Question
-                                 {% else %}
-                                 No Question Yet
-                                {% endif %}
-                                </h2>
+       <div class="row">
+        <div class="col-md-12 center">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>
+                            {% if card.question %}
+                             Question
+                             {% else %}
+                             No Question Yet
+                            {% endif %}
+                            </h2>
 
 
-                            <h4>{{ card.question }}</h4>
-                        </div>
-                        <div class="flip-card-back">
-                            <h2>Reveal Answer</h2>
-
-                            <h4 class="cardanswer">{{ card.answer }}</h4>
-                        </div>
+                        <h4>{{ card.question }}</h4>
                     </div>
-                </div>
-            </article>
-            {% if check_card %}
-            <article>
-                <div class="row">
-                    <div class="col-md-12">
-                        <textarea class="form-control" id="tryanswer" rows="3"></textarea>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <button type="button" id="revealanswer" class="reaveal">Reveal Answer</button>
-            </article>
-            {% endif %}
-            <div class="row">
-                <div class="col-md-6 known" style="display: none;">
-                    {% include "cards/card_check_form.html" with solved=True %}
+                    <div class="flip-card-back">
+                        <h2>Reveal Answer</h2>
 
-                </div>
-                <div class="col-md-6 unknown" style="display: none;">
-                    {% include "cards/card_check_form.html" with solved=False %}
+                        <h4 class="cardanswer">{{ card.answer }}</h4>
+                    </div>
                 </div>
             </div>
+        </div>
+       </div>
+            {% if check_card %}
+            
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <textarea class="" id="tryanswer" rows="3"></textarea>
+                    </div>
+                </div>
+           
+            <div class="row">
+                <div class="col-md-4 ">
+                <button type="button" id="revealanswer" class="reaveal">Reveal Answer</button>
+            </div>
+            <div class="col-md-4">
+                   <span class="outcome"></span>
+            </div>
+            <div class="col-md-4">
+                <div class="row ">
+                    <div class="col-md-6 known" style="display: none;">
+                        {% include "cards/card_check_form.html" with solved=True %}
+    
+                    </div>
+                    <div class="col-md-6 unknown" style="display: none;">
+                        {% include "cards/card_check_form.html" with solved=False %}
+                    </div>
+                </div>
+            </div>
+            </div>
+            {% endif %}
+            
 
         </article>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+    
+        <div class="legend">
+            <div class="legend-item">
+                <span class="color-box1"></span>
+                <span class="legend-text mywhite">Wrong Attempt- {{ wrong}}</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box2"></span>
+                <span class="legend-text mywhite">Correct Attempt- {{ correct }}</span>
+            </div>
+    </div>
+ 
 </div>
 
 
 
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#revealanswer').on('click', function () {
-            if ($('#tryanswer').val() != "") {
-                $('.flip-card').toggleClass('flip');
-                var buttonText = $(this).text() === 'Reveal Answer' ? 'Back to question' : 'Reveal Answer';
-                $(this).text(buttonText);
-                if ($('#tryanswer').val() == $('.cardanswer').text()) {
-                    $('.known').css("display", "block")
-                } else {
-                    $('.unknown').css("display", "block");
-                }
-            }
-            else {
-                alert("Provide an answer")
-            }
-
-
-        });
-    });
-</script>

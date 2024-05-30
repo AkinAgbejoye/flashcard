@@ -21,7 +21,7 @@ path(
     #     name="card-create"
     # ),
     path(
-        "edit/<int:id>",
+        "edit/<int:pk>",
         views.CardUpdateView.as_view(),
         name="card-update"
     ),
