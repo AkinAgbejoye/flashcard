@@ -128,11 +128,18 @@ article{
 
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close")[0];
-
+        const deleteDeckUrlBase = "/deck/"
         // When the user clicks the button, open the modal 
         $(".myBtn").click(function() {
+        const id = $(this).data('id');
+        const name = $(this).data('name');
+        const href = `${deleteDeckUrlBase}${id}/delete`;
+         $('.name_deck').text(name);
+       $('.btndeckdelete').attr('href', href);
           modal.style.display = "block";
         })
+
+
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {

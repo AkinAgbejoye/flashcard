@@ -15,11 +15,11 @@
     
     </div>
     <div class="modal-body">
-      <h2 class="text-center">Are you sure you want to delete</h2>
+      <h2 class="text-center">Are you sure you want to delete <span class="name_deck"></span></h2>
       <p class="text-center" >Once deleted, deck and questions can no longer be retrieved</p>
     </div>
     <div class="modal-footer">
-      <a class="btn" href="{% url 'delete_deck' deck.id %}">❌Delete</a>
+      <a class="btn btndeckdelete" href="{% url 'delete_deck' deck.id %}">❌Delete</a>
     </div>
   </div>
 
@@ -28,7 +28,7 @@
     <a href="{% url 'deck' deck=deck.name %}">
         🗃 {{ deck  }}
     </a>
-    <a class="myBtn badge badge-primary badge-pill" >❌</a>
+    <a data-id="{{deck.id}}" data-name="{{ deck.name }}" class="myBtn badge badge-primary badge-pill" >❌</a>
     
   </li>
    
