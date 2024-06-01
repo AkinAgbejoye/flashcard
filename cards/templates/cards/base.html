@@ -53,6 +53,11 @@ textarea{
     line-height: normal;
     text-decoration: none;
 }
+.quit:hover{
+  background: transparent !important;
+}
+
+
 article{
   z-index: 1
 }
@@ -76,6 +81,9 @@ article{
     <ol class="breadcrumb  navbar-dark bg-dark">
       {% if name %}
       <li class="breadcrumb-item"><a href="{% url 'card-list' %}">Manage Cards</a></li>
+      <div class="" style="float:right">
+        <li class="breadcrumb-item"><a href="{% url 'get_name' %}">Quit</a></li>
+      </div>
       {% endif %}
     </ol>
   </nav>

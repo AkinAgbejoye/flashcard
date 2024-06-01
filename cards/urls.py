@@ -47,4 +47,5 @@ path(
     path('add/', views.DeckCreateView.as_view(), name='deck_add'),
     path('deck/<int:id>/delete/', views.DeckCreateView.delete_deck, name='delete_deck'),
     path('', get_name, name='get_name'),
+    
 ]

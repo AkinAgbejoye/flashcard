@@ -204,5 +204,12 @@ def get_name(request):
 
     return render(request, 'cards/player_form.html')
 
+def quit(request):
+    request.session['name'] = ""  
+    request.session['wrong'] = 0
+    request.session['correct'] = 0
+    return redirect('get_name')
+
+
 
     
