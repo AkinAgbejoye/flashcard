@@ -102,6 +102,8 @@ class CardCreateView(CreateView):
     }
     success_url = reverse_lazy("card-create")
 
+    
+
     def get_context_data(self, **kwargs):
     # Get the default context data from the superclass method
         context = super().get_context_data(**kwargs)
@@ -113,6 +115,7 @@ class CardCreateView(CreateView):
         context['name'] = name
 
         return context
+
 
 # class CardCreateView(CreateView):
 #       model = Card
@@ -158,6 +161,11 @@ class BoxView(CardListView):
 
         return redirect(request.META.get("HTTP_REFERER"))
     
+    def delete_card(request, id):
+        card = get_object_or_404(Card, id=id)
+        card.delete()
+        return redirect('card-list')
+
     def display_name(request):
         name = request.session.get('name')
         return name
@@ -197,3 +205,4 @@ def get_name(request):
     return render(request, 'cards/player_form.html')
 
 
+    

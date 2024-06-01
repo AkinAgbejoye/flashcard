@@ -3,10 +3,19 @@
 
 <div class="col-md-4">
     <article class="col-md-12 center">
-        <a href="{% url 'card-update' card.id %}" role="button">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="{% url 'card-update' card.id %}" role="button">
             ✏️ Edit Card
         </a>
-            <div class="flip-card">
+        </div>
+        <div class="col-md-6">
+          <a href="{% url 'card-delete' card.id %}" role="button">
+            ❌ Delete
+        </a>
+        </div>
+      </div>
+        <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
                     <h2 class="h2">Question</h2>

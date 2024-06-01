@@ -25,6 +25,13 @@ path(
         views.CardUpdateView.as_view(),
         name="card-update"
     ),
+
+     path(
+        "delete/<int:id>",
+        views.BoxView.delete_card,
+        name="card-delete"
+    ),
+
     path(
         "box/<int:box_num>",
         views.BoxView.as_view(),
