@@ -1,5 +1,22 @@
 <!-- templates/cards/card.html -->
+<div id="QModal" class="modal">
 
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="closeQ">&times;</span>
+    
+    </div>
+    <div class="modal-body">
+      <h2 class="text-center">Are you sure you want to delete this question?</h2>
+      <p class="text-center" >Once deleted, deck and questions can no longer be retrieved</p>
+    </div>
+    <div class="modal-footer">
+      <a class="btn btncarddelete" href="">❌Delete</a>
+    </div>
+  </div>
+
+</div>
 
 <div class="col-md-4">
     <article class="col-md-12 center">
@@ -10,7 +27,7 @@
         </a>
         </div>
         <div class="col-md-6">
-          <a href="{% url 'card-delete' card.id %}" role="button">
+          <a data-id="{{ card.id }}" class= "btnQdel badge badge-primary badge-pill"  role="button">
             ❌ Delete
         </a>
         </div>
